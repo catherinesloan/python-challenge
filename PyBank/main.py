@@ -8,7 +8,7 @@ with open(budget_csv, "r") as csvfile:
     # Split the data on commas
     csvreader = csv.reader(csvfile, delimiter=",")
     # Skip header
-    csvheader = next(csvfile)
+    next(csvreader, None)
 
     # Declare variables as empty lists
     months = []
@@ -48,7 +48,7 @@ with open(budget_csv, "r") as csvfile:
         # Add both of these to the financial analysis below - line 58
 
 
-# Print out the Financial Analysis to terminal
+# Print out the financial analysis to terminal
 print("Financial Analysis")
 print("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
 print(f"Total Months: {len(months)}")
@@ -56,3 +56,16 @@ print(f"Total: ${sum(revenue)}")
 print(f"Average Change: ${round(average_change,2)}")
 print(f"Greatest Increase in Profits: {month_increase} ${greatest_increase}")
 print(f"Greatest Decrease in Profits: {month_decrease} ${greatest_decrease}")
+
+
+# Export the above analysis as a text file in analysis folder
+f = open("Analysis/financial_analysis.txt", "w" )
+f.write(
+    "Financial Analaysis\n"
+    "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n"
+    f"Total Months: {len(months)}\n"
+    f"Total: ${sum(revenue)}\n"
+    f"Average Change: ${round(average_change,2)}\n"
+    f"Greatest Increase in Profits: {month_increase} ${greatest_increase}\n"
+    f"Greatest Decrease in Profits: {month_decrease} ${greatest_decrease}\n"
+    )

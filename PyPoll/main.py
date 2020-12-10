@@ -81,4 +81,8 @@ filewriter.write(f"Winner: {winner}\n")
 filewriter.write("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n")
 
 #close file
+<<<<<<< HEAD
 filewriter.close()
+=======
+filewriter.close()
+>>>>>>> 653e01f9e241cb4f3389289b9019973fee35f516
